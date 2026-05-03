@@ -13,13 +13,19 @@ SpaceShip Titanic Kaggle 竞赛建模项目项目概述本项目针对 Kaggle Sp
 - 采用随机森林、XGBoost 构建分类基线模型
 - 交叉验证调参，稳定模型效果
 - 基线最终得分：**0.77507**项目依赖库
-plaintext
+
 pandas
+
 numpy
+
 matplotlib
+
 seaborn
+
 scikit-learn
-xgboost## 运行方式
+
+xgboost
+## 运行方式
 1. 克隆项目到本地
 2. 安装依赖库
 3. 运行 notebooks 下的代码即可完成建模与预测## 项目成果与后续规划
