@@ -1,1 +1,34 @@
-﻿SpaceShip Titanic Kaggle 竞赛建模项目项目概述本项目针对 Kaggle Spaceship Titanic 竞赛开展，任务是预测星际飞船乘客是否被传送到异次元空间，属于二分类机器学习任务。通过完成数据探索性分析（EDA）、数据预处理、特征工程、模型构建与调优，最终生成提交文件，首次基线模型得分 0.77507，后续可持续优化提升模型性能。竞赛地址：https://www.kaggle.com/competitions/spaceship-titanic项目目录结构plaintextSpaceship-Titanic/├── data/                  # 数据集文件夹（训练集+测试集）├── notebooks/             # Kaggle代码笔记本（.ipynb格式）│   └── spaceship_baseline_0.775.ipynb├── README.md              # 项目说明文档├── submission.csv         # 竞赛提交结果文件└── requirements.txt       # 项目依赖库数据集说明训练集（train.csv）：包含 8693 条样本，14 个特征 + 1 个目标变量Transported测试集（test.csv）：包含 4277 条样本，13 个特征，需预测目标变量核心特征：乘客基础信息：PassengerId、HomePlanet、CryoSleep、Age、VIP 等消费类特征：RoomService、FoodCourt、ShoppingMall、Spa、VRDeck位置特征：Cabin、Destination目标变量：Transported（True/False，是否被传送）项目流程与工作内容一、数据探索性分析（EDA）本次项目完成全面 EDA 分析，为后续预处理和建模提供数据支撑，核心工作如下：数据基础探查查看数据集行列数、字段类型、缺失值分布，定位缺失率较高的特征统计重复样本，确认无重复数据，保证数据唯一性特征分布分析分类特征：分析 HomePlanet、Destination、CryoSleep 等类别分布数值特征：绘制 Age、消费特征分布与箱线图，识别异常值目标变量分布：确认二分类样本基本均衡特征相关性分析计算数值特征相关系数，绘制热力图分析分类特征与目标变量关联性缺失值与异常值分析定位各特征缺失值，分析缺失原因识别消费类极端异常值，制定处理方案二、数据预处理与特征工程缺失值处理：分类特征众数填充，数值特征中位数填充异常值处理：对消费类特征截断、缓解偏态分布特征构造：拆分 Cabin 为 Deck、Num、Side；新增 TotalSpend 总消费特征编码转换：分类特征编码，数值特征标准化三、模型构建与训练选用随机森林、XGBoost 等经典分类模型搭建基线划分训练集 / 验证集，交叉验证评估基线模型最终 Kaggle 提交得分：0.77507项目依赖库plaintextpandas>=1.5.0numpy>=1.23.0matplotlib>=3.5.0seaborn>=0.11.0scikit-learn>=1.1.0xgboost>=1.6.0运行说明克隆仓库到本地安装依赖：pip install -r requirements.txt运行对应 ipynb 笔记本，生成预测提交文件项目成果与后续计划已完成完成全套 EDA 数据探索完成数据清洗与特征工程构建基线模型，拿到竞赛分数 0.77507代码同步 GitHub 版本管理后续优化深度特征工程模型超参数调优多模型集成提升分数
+
+SpaceShip Titanic Kaggle 竞赛建模项目项目概述本项目针对 Kaggle Spaceship Titanic 竞赛开展，任务是预测星际飞船乘客是否被传送到异次元空间，属于二分类机器学习任务。通过完成数据探索性分析（EDA）、数据预处理、特征工程、模型构建与调优，最终生成提交文件，首次基线模型得分 0.77507，后续可持续优化提升模型性能。竞赛地址：https://www.kaggle.com/competitions/spaceship-titanic项目目录结构Spaceship-Titanic/
+├── data/
+├── notebooks/
+├── README.md
+├── submission.csv
+└── requirements.txt## 数据集说明1. 训练集train.csv：共8693条样本，14个特征，目标标签为乘客是否被传送。2. 测试集test.csv：包含竞赛待预测样本，无目标标签。3. 核心字段包含乘客基础信息、消费记录、舱位及目的地等特征维度。## 项目流程与工作内容### 一、数据探索EDA
+- 缺失值分析、分布统计、异常值检测
+- 特征相关性可视化、字段含义梳理### 二、数据预处理与特征工程
+- 缺失值填充、异常值处理
+- 类别特征编码、数值特征归一化
+- 拆分复合字段、构造衍生统计特征### 三、模型训练与基线结果
+- 采用随机森林、XGBoost 构建分类基线模型
+- 交叉验证调参，稳定模型效果
+- 基线最终得分：**0.77507**项目依赖库
+plaintext
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+xgboost## 运行方式
+1. 克隆项目到本地
+2. 安装依赖库
+3. 运行 notebooks 下的代码即可完成建模与预测## 项目成果与后续规划
+### 已完成
+- 完成全套EDA数据探索分析
+- 完成数据清洗、预处理与特征工程
+- 搭建传统机器学习基线模型，拿到竞赛分数0.77507
+
+### 后续优化方向
+- 进一步深度特征构造与特征筛选
+- 模型超参数精细化调优
+- 尝试多模型融合提升竞赛得分
